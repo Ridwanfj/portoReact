@@ -11,10 +11,10 @@ export default function ProjectSidebar({ project, onClose }) {
       exit={{ x: "100%" }}
       transition={{ type: "spring", stiffness: 90, damping: 20 }}
       className="
-        fixed right-0 top-0 h-full w-[420px]
+        fixed right-0 top-0 h-full w-full sm:w-[420px]
         bg-card backdrop-blur-xl
         border-l border-theme
-        p-8 text-theme shadow-2xl
+        p-6 sm:p-8 text-theme shadow-2xl
         overflow-y-auto scrollbar
       "
       style={{ 
@@ -28,7 +28,7 @@ export default function ProjectSidebar({ project, onClose }) {
       <button
         onClick={onClose}
         className="
-          mb-6 text-sm flex items-center gap-2 
+          mb-4 sm:mb-6 text-sm flex items-center gap-2 
           text-accent hover:opacity-80 transition-all
           font-medium
         "
@@ -37,7 +37,7 @@ export default function ProjectSidebar({ project, onClose }) {
       </button>
 
       {/* Title */}
-      <h3 className="text-2xl font-bold mb-4 text-theme">{project.title}</h3>
+      <h3 className="text-xl sm:text-2xl font-bold mb-4 text-theme">{project.title}</h3>
 
       {/* Thumbnail */}
       <div className="w-full rounded-xl mb-6 overflow-hidden shadow-lg border border-theme">

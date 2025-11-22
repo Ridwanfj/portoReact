@@ -45,7 +45,7 @@ export default function AboutMe() {
     <section
       id="about"
       ref={ref}
-      className="w-full py-32 text-theme px-8 md:px-20 flex flex-col gap-16"
+      className="w-full py-16 md:py-32 text-theme px-4 sm:px-8 md:px-20 flex flex-col gap-12 md:gap-16"
     >
       {/* TITLE */}
       <motion.div 
@@ -54,29 +54,29 @@ export default function AboutMe() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-theme">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-theme">
           LET'S INTRODUCE
         </h2>
-        <h2 className="text-3xl md:text-4xl font-bold mt-1 text-accent">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-1 text-accent">
           ABOUT MYSELF
         </h2>
       </motion.div>
 
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center"
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 items-center"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
         {/* LEFT — TECH STACK */}
-        <motion.div className="flex flex-col gap-8" variants={itemVariants}>
+        <motion.div className="flex flex-col gap-6 md:gap-8 order-2 md:order-1" variants={itemVariants}>
           <div>
-            <h3 className="text-3xl font-semibold mb-4 text-theme">Tech Stack</h3>
-            <div className="flex flex-wrap gap-4">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-3 md:mb-4 text-theme">Tech Stack</h3>
+            <div className="flex flex-wrap gap-3 md:gap-4">
               {techIcons.map((icon, index) => (
                 <motion.div
                   key={icon.alt}
-                  className="w-12 h-12 bg-card rounded-lg p-2 border border-theme"
+                  className="w-10 h-10 md:w-12 md:h-12 bg-card rounded-lg p-2 border border-theme"
                   style={{ background: 'var(--card-bg)', borderColor: 'var(--border-color)' }}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -91,12 +91,12 @@ export default function AboutMe() {
           </div>
 
           <div>
-            <h3 className="text-3xl font-semibold mb-4 text-theme">Software</h3>
-            <div className="flex flex-wrap gap-4">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-3 md:mb-4 text-theme">Software</h3>
+            <div className="flex flex-wrap gap-3 md:gap-4">
               {softwareIcons.map((icon, index) => (
                 <motion.div
                   key={icon.alt}
-                  className="w-12 h-12 bg-card rounded-lg p-2 border border-theme"
+                  className="w-10 h-10 md:w-12 md:h-12 bg-card rounded-lg p-2 border border-theme"
                   style={{ background: 'var(--card-bg)', borderColor: 'var(--border-color)' }}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -113,11 +113,11 @@ export default function AboutMe() {
 
         {/* MIDDLE — PHOTO */}
         <motion.div 
-          className="flex justify-center"
+          className="flex justify-center order-1 md:order-2"
           variants={itemVariants}
         >
           <motion.div 
-            className="w-[300px] h-[380px] bg-accent rounded-t-[180px] overflow-hidden shadow-2xl border-4 border-theme"
+            className="w-[220px] h-[280px] sm:w-[260px] sm:h-[330px] md:w-[300px] md:h-[380px] bg-accent rounded-t-[120px] md:rounded-t-[180px] overflow-hidden shadow-2xl border-2 md:border-4 border-theme"
             whileHover={{ scale: 1.05, rotate: 2 }}
             transition={{ duration: 0.3 }}
           >
@@ -130,8 +130,8 @@ export default function AboutMe() {
         </motion.div>
 
         {/* RIGHT — DESCRIPTION */}
-        <motion.div className="text-soft leading-relaxed" variants={itemVariants}>
-          <p className="text-justify mb-6">
+        <motion.div className="text-soft leading-relaxed order-3" variants={itemVariants}>
+          <p className="text-sm sm:text-base text-justify mb-4 md:mb-6">
             I enjoy learning new things and adapt quickly to dynamic
             environments.
             <span className="text-accent font-semibold">
@@ -145,16 +145,15 @@ export default function AboutMe() {
           </p>
 
           <motion.a
-            href="https://drive.google.com/file/d/1ts0KXzitIOZPGsFu_4VT9_MI6i5hJDMJ/view?usp=sharing"
+            href="/cv.pdf"
             download
             className="
-              inline-block mt-4
-              px-8 py-3 
+              inline-block mt-2 md:mt-4
+              px-6 md:px-8 py-2.5 md:py-3 
               bg-accent text-dark 
-              font-semibold rounded-xl
+              font-semibold text-sm md:text-base rounded-xl
               shadow-lg
             "
-            target="blank"
             whileHover={{ scale: 1.05, opacity: 0.9 }}
             whileTap={{ scale: 0.95 }}
           >

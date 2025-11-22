@@ -56,7 +56,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="w-full py-24 px-6 md:px-20 text-theme flex flex-col items-center"
+      className="w-full py-16 md:py-24 px-4 sm:px-6 md:px-20 text-theme flex flex-col items-center"
     >
       {/* Header */}
       <motion.div
@@ -64,10 +64,10 @@ export default function Contact() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-theme">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 md:mb-4 text-theme">
           CONTACT ME
         </h2>
-        <p className="text-soft opacity-70 text-center mb-12 max-w-xl">
+        <p className="text-soft opacity-70 text-center mb-8 md:mb-12 max-w-xl text-sm sm:text-base px-4">
           Have a project, question, or collaboration idea?  
           Feel free to send me a message!
         </p>
@@ -78,9 +78,9 @@ export default function Contact() {
         onSubmit={sendEmail}
         className="
           w-full max-w-4xl 
-          bg-card p-8 rounded-2xl shadow-xl
+          bg-card p-6 sm:p-8 rounded-2xl shadow-xl
           backdrop-blur-sm border border-theme 
-          flex flex-col gap-6
+          flex flex-col gap-5 md:gap-6
         "
         style={{
           background: "var(--card-bg)", 
@@ -92,13 +92,13 @@ export default function Contact() {
       >
         {/* NAME */}
         <motion.div className="flex flex-col" variants={itemVariants}>
-          <label className="text-theme font-semibold mb-2">Name</label>
+          <label className="text-theme font-semibold mb-2 text-sm sm:text-base">Name</label>
           <motion.input
             type="text"
             name="name"
             required
             className="
-              px-4 py-3 rounded-lg 
+              px-4 py-2.5 md:py-3 rounded-lg text-sm sm:text-base
               bg-card border border-theme 
               focus:border-accent focus:ring-2 focus:ring-accent/20
               outline-none transition-all
@@ -115,13 +115,13 @@ export default function Contact() {
 
         {/* EMAIL */}
         <motion.div className="flex flex-col" variants={itemVariants}>
-          <label className="text-theme font-semibold mb-2">Email</label>
+          <label className="text-theme font-semibold mb-2 text-sm sm:text-base">Email</label>
           <motion.input
             type="email"
             name="email"
             required
             className="
-              px-4 py-3 rounded-lg 
+              px-4 py-2.5 md:py-3 rounded-lg text-sm sm:text-base
               bg-card border border-theme
               focus:border-accent focus:ring-2 focus:ring-accent/20
               outline-none transition-all
@@ -138,13 +138,13 @@ export default function Contact() {
 
         {/* MESSAGE */}
         <motion.div className="flex flex-col" variants={itemVariants}>
-          <label className="text-theme font-semibold mb-2">Message</label>
+          <label className="text-theme font-semibold mb-2 text-sm sm:text-base">Message</label>
           <motion.textarea
             name="message"
             rows="5"
             required
             className="
-              px-4 py-3 rounded-lg 
+              px-4 py-2.5 md:py-3 rounded-lg text-sm sm:text-base
               bg-card border border-theme
               focus:border-accent focus:ring-2 focus:ring-accent/20
               outline-none resize-none transition-all
@@ -164,7 +164,7 @@ export default function Contact() {
           type="submit"
           disabled={loading}
           className="
-            mt-2 px-6 py-3 
+            mt-2 px-6 py-2.5 md:py-3 text-sm sm:text-base
             bg-accent text-dark 
             font-bold rounded-xl 
             transition-all duration-300
@@ -176,7 +176,7 @@ export default function Contact() {
           whileTap={{ scale: 0.95 }}
         >
           {loading ? (
-            <span className="flex items-center gap-2">
+            <span className="flex items-center justify-center gap-2">
               <motion.span
                 animate={{ rotate: 360 }}
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
@@ -201,7 +201,7 @@ export default function Contact() {
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
             </svg>
-            <span className="font-semibold">Message sent successfully!</span>
+            <span className="font-semibold text-sm sm:text-base">Message sent successfully!</span>
           </motion.div>
         )}
       </motion.form>
