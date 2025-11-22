@@ -1,24 +1,29 @@
 /** @type {import('tailwindcss').Config} */
-// tailwind.config.js
-module.exports = {
-  darkMode: "class",
+export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}"
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
       colors: {
-        dark: "#1A0F0A",
-        accent: "#B98786",
-        soft: "#f5f5f5",
-        card: "#FFFFFF"
+        // Define custom colors that work with your theme
+        dark: '#1A0F0A',
+        soft: '#fffffe',
+        accent: '#b98786',
       },
-      borderRadius: {
-        xl: "8px"
+      backgroundColor: {
+        'card': 'var(--card-bg)',
+      },
+      borderColor: {
+        'theme': 'var(--border-color)',
+      },
+      textColor: {
+        'theme': 'var(--text-main)',
+        'soft': 'var(--text-soft)',
       }
     },
   },
   plugins: [],
 }
-

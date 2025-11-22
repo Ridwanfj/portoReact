@@ -3,9 +3,7 @@ import { useRef, useEffect } from 'react';
 const Squares = ({
   direction = 'right',
   speed = 1,
-  borderColor = '#999',
   squareSize = 40,
-  hoverFillColor = '#222'
 }) => {
   const canvasRef = useRef(null);
   const requestRef = useRef(null);
@@ -18,6 +16,18 @@ const Squares = ({
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+
+    // Detect theme changes
+    const getThemeColors = () => {
+      const isDark = document.documentElement.classList.contains('dark') || 
+                     !document.documentElement.classList.contains('light');
+      return {
+        borderColor: isDark ? '#271e37' : 'rgba(0,0,0,0.08)',
+        hoverFillColor: isDark ? 'rgba(65,65,65,0.4)' : 'rgba(185,135,134,0.15)',
+        gradientStart: isDark ? 'rgba(0, 0, 0, 0)' : 'rgba(246, 246, 246, 0)',
+        gradientEnd: isDark ? '#060010' : 'rgba(246, 246, 246, 0.9)'
+      };
+    };
 
     const resizeCanvas = () => {
       canvas.width = canvas.offsetWidth;
@@ -32,6 +42,7 @@ const Squares = ({
     const drawGrid = () => {
       if (!ctx) return;
 
+      const colors = getThemeColors();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
@@ -47,15 +58,16 @@ const Squares = ({
             Math.floor((x - startX) / squareSize) === hoveredSquareRef.current.x &&
             Math.floor((y - startY) / squareSize) === hoveredSquareRef.current.y
           ) {
-            ctx.fillStyle = hoverFillColor;
+            ctx.fillStyle = colors.hoverFillColor;
             ctx.fillRect(squareX, squareY, squareSize, squareSize);
           }
 
-          ctx.strokeStyle = borderColor;
+          ctx.strokeStyle = colors.borderColor;
           ctx.strokeRect(squareX, squareY, squareSize, squareSize);
         }
       }
 
+      // Gradient overlay
       const gradient = ctx.createRadialGradient(
         canvas.width / 2,
         canvas.height / 2,
@@ -64,8 +76,8 @@ const Squares = ({
         canvas.height / 2,
         Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
       );
-      gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
-      gradient.addColorStop(1, '#060010');
+      gradient.addColorStop(0, colors.gradientStart);
+      gradient.addColorStop(1, colors.gradientEnd);
 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -132,7 +144,7 @@ const Squares = ({
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [direction, speed, borderColor, hoverFillColor, squareSize]);
+  }, [direction, speed, squareSize]);
 
   return <canvas ref={canvasRef} className="w-full h-full border-none block"></canvas>;
 };

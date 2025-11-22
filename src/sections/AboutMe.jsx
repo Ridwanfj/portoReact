@@ -1,79 +1,166 @@
 import React from "react";
-const themeStyle = { color: "var(--text-main)" , background: "transparent" };
-
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function AboutMe() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const techIcons = [
+    { src: "/assets/html.png", alt: "HTML" },
+    { src: "/assets/react.png", alt: "React" },
+    { src: "/assets/js.png", alt: "JavaScript" },
+    { src: "/assets/java.png", alt: "Java" },
+    { src: "/assets/python.png", alt: "Python" },
+    { src: "/assets/laravel.png", alt: "Laravel" },
+  ];
+
+  const softwareIcons = [
+    { src: "/assets/ai.png", alt: "Illustrator" },
+    { src: "/assets/figma.png", alt: "Figma" },
+    { src: "/assets/canva.png", alt: "Canva" },
+  ];
+
   return (
     <section
       id="about"
-      className="w-full py-32 text-soft px-8 md:px-20 py-24 flex flex-col gap-16"
-     style={themeStyle}>
+      ref={ref}
+      className="w-full py-32 text-theme px-8 md:px-20 flex flex-col gap-16"
+    >
       {/* TITLE */}
-      <div className="text-center">
-        <h2 className="text-3xl md:text-4xl font-bold">LET’S INTRODUCE</h2>
-        <h2 className="text-3xl md:text-4xl font-bold mt-1">ABOUT MYSELF</h2>
-      </div>
+      <motion.div 
+        className="text-center"
+        initial={{ opacity: 0, y: -30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-theme">
+          LET'S INTRODUCE
+        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold mt-1 text-accent">
+          ABOUT MYSELF
+        </h2>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         {/* LEFT — TECH STACK */}
-        <div className="flex flex-col gap-8">
+        <motion.div className="flex flex-col gap-8" variants={itemVariants}>
           <div>
-            <h3 className="text-3xl font-semibold mb-4">Tech Stack</h3>
+            <h3 className="text-3xl font-semibold mb-4 text-theme">Tech Stack</h3>
             <div className="flex flex-wrap gap-4">
-              <img src="/assets/html.png" className="w-12" />
-              <img src="/assets/react.png" className="w-14" />
-              <img src="/assets/js.png" className="w-14" />
-              <img src="/assets/java.png" className="w-12" />
-              <img src="/assets/python.png" className="w-12" />
-              <img src="/assets/laravel.png" className="w-12" />
+              {techIcons.map((icon, index) => (
+                <motion.div
+                  key={icon.alt}
+                  className="w-12 h-12 bg-card rounded-lg p-2 border border-theme"
+                  style={{ background: 'var(--card-bg)', borderColor: 'var(--border-color)' }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <img src={icon.src} alt={icon.alt} className="w-full h-full object-contain" />
+                </motion.div>
+              ))}
             </div>
           </div>
 
           <div>
-            <h3 className="text-3xl font-semibold mb-4">Software</h3>
+            <h3 className="text-3xl font-semibold mb-4 text-theme">Software</h3>
             <div className="flex flex-wrap gap-4">
-              <img src="/assets/ai.png" className="w-12" />
-              <img src="/assets/figma.png" className="w-12" />
-              <img src="/assets/canva.png" className="w-12" />
+              {softwareIcons.map((icon, index) => (
+                <motion.div
+                  key={icon.alt}
+                  className="w-12 h-12 bg-card rounded-lg p-2 border border-theme"
+                  style={{ background: 'var(--card-bg)', borderColor: 'var(--border-color)' }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.4, delay: 1 + index * 0.1 }}
+                  whileHover={{ scale: 1.2, rotate: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <img src={icon.src} alt={icon.alt} className="w-full h-full object-contain" />
+                </motion.div>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* MIDDLE — PHOTO */}
-        <div className="flex justify-center">
-          <div className="w-[300px] h-[380px] bg-accent rounded-t-[180px] overflow-hidden shadow-xl">
+        <motion.div 
+          className="flex justify-center"
+          variants={itemVariants}
+        >
+          <motion.div 
+            className="w-[300px] h-[380px] bg-accent rounded-t-[180px] overflow-hidden shadow-2xl border-4 border-theme"
+            whileHover={{ scale: 1.05, rotate: 2 }}
+            transition={{ duration: 0.3 }}
+          >
             <img
               src="/assets/aboutme.png"
               alt="Ridwan"
               className="w-full h-full object-cover"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* RIGHT — DESCRIPTION */}
-        <div className="text-soft/90 text-justify leading-relaxed">
-          <p>
+        <motion.div className="text-soft leading-relaxed" variants={itemVariants}>
+          <p className="text-justify mb-6">
             I enjoy learning new things and adapt quickly to dynamic
             environments.
-            <span className="text-accent">
+            <span className="text-accent font-semibold">
               {" "}
-              I’m a third-year Informatics Engineering student at Universitas
+              I'm a third-year Informatics Engineering student at Universitas
               Negeri Semarang
             </span>{" "}
             with experience in several web projects that strengthened my skills
             in
-            <span className="text-accent"> HTML5, CSS, JavaScript, Java, and Python.</span>
+            <span className="text-accent font-semibold"> HTML5, CSS, JavaScript, Java, and Python.</span>
           </p>
 
-          <a
+          <motion.a
             href="/cv.pdf"
             download
-            className="mt-8 inline-block px-6 py-3 bg-soft text-dark font-semibold rounded-xl"
+            className="
+              inline-block mt-4
+              px-8 py-3 
+              bg-accent text-dark 
+              font-semibold rounded-xl
+              shadow-lg
+            "
+            whileHover={{ scale: 1.05, opacity: 0.9 }}
+            whileTap={{ scale: 0.95 }}
           >
             DOWNLOAD CV
-          </a>
-        </div>
-      </div>
+          </motion.a>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
