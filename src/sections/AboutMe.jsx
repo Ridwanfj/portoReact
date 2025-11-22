@@ -145,7 +145,8 @@ export default function AboutMe() {
           </p>
 
           <motion.a
-            href="/cv.pdf"
+            href="https://drive.google.com/file/d/1ts0KXzitIOZPGsFu_4VT9_MI6i5hJDMJ/view?usp=sharing"
+            target="blank"
             download
             className="
               inline-block mt-2 md:mt-4
