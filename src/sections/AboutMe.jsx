@@ -145,7 +145,7 @@ export default function AboutMe() {
           </p>
 
           <motion.a
-            href="/cv.pdf"
+            href="https://drive.google.com/file/d/1ts0KXzitIOZPGsFu_4VT9_MI6i5hJDMJ/view?usp=sharing"
             download
             className="
               inline-block mt-4
@@ -154,6 +154,7 @@ export default function AboutMe() {
               font-semibold rounded-xl
               shadow-lg
             "
+            target="blank"
             whileHover={{ scale: 1.05, opacity: 0.9 }}
             whileTap={{ scale: 0.95 }}
           >

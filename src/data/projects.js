@@ -7,8 +7,8 @@ const projects = [
     thumb: "/assets/project.png",
     large: "/assets/project.png",
     tags: ["HTML", "CSS", "Python"],
-    github: "#",
-    website: "#",
+    github: "https://github.com/Ridwanfj/StrokeRiskPredict",
+    website: "https://ridwan08.pythonanywhere.com/",
     desc: "Project web sederhana untuk memprediksi risiko stroke..."
   },
 
@@ -20,7 +20,7 @@ const projects = [
     thumb: "/assets/project2.png",
     large: "/assets/project2.png",
     tags: ["Laravel", "Blade"],
-    github: "#",
+    github: "https://github.com/Ridwanfj/Safetalkbaru",
     website: "#",
     desc: "Project web sederhana untuk memprediksi risiko stroke..."
   },
@@ -33,9 +33,9 @@ const projects = [
     thumb: "/assets/project3.png",
     large: "/assets/project3.png",
     tags: ["HTML", "CSS", "Python"],
-    github: "#",
-    website: "#",
-    desc: "Project web sederhana untuk memprediksi risiko stroke..."
+    github: "https://ridwanfj.github.io/Portofolio/",
+    website: "#https://github.com/Ridwanfj/Portofolio",
+    desc: "Website Portofolio simpel dengan basic html, css dan Javascript"
   },
 
   {
