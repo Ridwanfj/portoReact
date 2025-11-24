@@ -21,7 +21,7 @@ export default function Footer() {
       )
     },
     {
-      href: "https://www.linkedin.com/in/ridwanfj/n",
+      href: "https://www.linkedin.com/in/ridwanfj/",
       label: "LinkedIn",
       icon: (
         <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5Zm.02 4h-.02C3.88 7.5 3 6.62 3 5.5S3.88 3.5 5 3.5 7 4.38 7 5.5 6.12 7.5 5 7.5ZM3 9h4v12H3V9Zm7 0h4v1.71c.58-.86 1.67-1.71 3.47-1.71 3.28 0 4.53 2.15 4.53 5.32V21h-4v-6.14c0-1.47-.03-3.36-2.05-3.36-2.06 0-2.38 1.6-2.38 3.25V21h-4V9Z"/>
