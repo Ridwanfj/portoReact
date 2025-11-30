@@ -46,8 +46,8 @@ const projects = [
     thumb: "/assets/design1.png",
     large: "/assets/design1.png",
     tags: ["Figma", "Illustrator", "Clo3D"],
-    drive: "#",       
-    download: "#",     
+    drive: "https://drive.google.com/drive/folders/14ziLgONFRftzXW3JYZF_W_IGw09PdUx2?usp=sharing",       
+    download: "https://drive.google.com/uc?export=download&id=1_v90egj0LsCcE7Ij6qM7MTWZdXmpNSnL",     
     desc: "Desain jersey untuk Acara Format Cup di Semarang"
   },
   {
@@ -58,8 +58,8 @@ const projects = [
     thumb: "/assets/design2.png",
     large: "/assets/design2.png",
     tags: ["Figma", "Illustrator", "Clo3D"],
-    drive: "#",        
-    download: "#", 
+    drive: "https://drive.google.com/drive/folders/1tDjvvit1baTxVchImUIWG3cLi5DLL1Tv?usp=sharing",        
+    download: "https://drive.google.com/uc?export=download&id=1Q34GklQ_yhtyoKbizBIF2v671FvnIxeX", 
     desc: "Desain jersey untuk sponsor Format Cup 2025"
   },
   {
@@ -70,8 +70,8 @@ const projects = [
     thumb: "/assets/design3.png",
     large: "/assets/design3.png",
     tags: ["Figma", "Illustrator", "Clo3D"],
-    drive: "#",        
-    download: "#", 
+    drive: "https://drive.google.com/drive/folders/1bpV9kFPoQQcS58iTvQeP_2YiSfZG9OCd?usp=sharing",        
+    download: "https://drive.google.com/uc?export=download&id=1bmKsHWpc8YX1qNzIvEEum3AMD2SDFfhJ", 
     desc: "Desain jersey dominan putih simple dengan paduan warna hijau dan emas"
   }
 ];
