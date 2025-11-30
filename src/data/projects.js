@@ -48,19 +48,31 @@ const projects = [
     tags: ["Figma", "Illustrator", "Clo3D"],
     drive: "#",       
     download: "#",     
-    desc: "Desain jersey untuk kompetisi internal kampus..."
+    desc: "Desain jersey untuk Acara Format Cup di Semarang"
   },
   {
     id: "D2",
     title: "Design Jersey",
-    subtitle: "Design Jersey Sponsor Format Cup 2025",
+    subtitle: "Design jersey Sponsor Format Cup 2025",
     type: "design",
     thumb: "/assets/design2.png",
     large: "/assets/design2.png",
     tags: ["Figma", "Illustrator", "Clo3D"],
     drive: "#",        
     download: "#", 
-    desc: "Desain jersey untuk kompetisi internal kampus..."
+    desc: "Desain jersey untuk sponsor Format Cup 2025"
+  },
+  {
+    id: "D3",
+    title: "Design Jersey",
+    subtitle: "Design Jersey The Ngapak",
+    type: "design",
+    thumb: "/assets/design3.png",
+    large: "/assets/design3.png",
+    tags: ["Figma", "Illustrator", "Clo3D"],
+    drive: "#",        
+    download: "#", 
+    desc: "Desain jersey dominan putih simple dengan paduan warna hijau dan emas"
   }
 ];
 
