@@ -8,11 +8,14 @@ export default function ProjectCard({ project, onOpen }) {
       onClick={() => onOpen(project)}
     >
       {/* Thumbnail */}
+      <div className="w-full aspect-video overflow-hidden">
       <img
         src={project.thumb}
         alt={project.title}
         className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
       />
+    </div>
+
 
       {/* Gradient Overlay - adapts to theme */}
       <div
